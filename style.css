@@ -161,12 +161,15 @@ body {
   
   
   @media (max-width: 1023px) {
-  canvas {
-    border: 2px dashed #fff;
-    margin-left: 20px;
-    margin-top: 24px;
-    width: 80vw !important;
-  }
+    canvas {
+        border: 2px dashed #fff;
+        margin-left: 20px;
+        margin-top: 24px;
+        max-width: 80vw !important;
+        max-height: 45vh !important;
+        height: auto !important;
+        width: auto !important;
+    }
   
   header {
     width: 90vw;
@@ -174,7 +177,7 @@ body {
   }
   
   .canvas-container {
-    height: 45vh !important;
+    height: 40vh !important;
   }
   .action-buttons{
     height: 130px;
