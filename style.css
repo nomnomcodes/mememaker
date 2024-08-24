@@ -1,3 +1,4 @@
+/* styles.css */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -166,11 +167,14 @@ body {
     margin-top: 24px;
     width: 80vw !important;
     height: 40vh !important;
-    margin-top: 210px;
   }
   
   header {
     width: 90vw;
     margin: 0 auto;
+  }
+  
+  .action-buttons{
+    height: 130px;
   }
   }
