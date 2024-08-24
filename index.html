@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nomnom meme editor</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
+</head>
+<body class="gaegu-regular">
+    <header><img src="logo-nav.png">
+    <h1>meme editor</h1></header>
+    <div class="container gaegu-regular">
+        <div class="top-button">
+            <label for="uploadImage" class="upload-button">📷 Upload Image</label>
+            <input type="file" id="uploadImage" accept="image/*" style="display: none;">
+        </div>
+        <div class="action-buttons">
+            <button id="undo" disabled>Undo</button>
+            <button id="redo" disabled>Redo</button>
+            <button id="flipHorizontal" disabled>Flip Horizontal</button>
+            <button id="flipVertical" disabled>Flip Vertical</button>
+            <button id="removeAll" disabled>Remove All Overlays</button>
+            <button id="removeSelected" disabled>Remove Selected Preset</button> <!-- New button -->
+
+        </div>
+        <canvas id="canvas" width="800" height="600"></canvas>
+        <div class="presets">
+            <h2>nomnom presets</h2>
+
+        </div>
+        <div class="button-container">
+
+            <button id="download" class="download-button gaegu-regular" disabled>⬇️ Download</button>
+
+        </div>
+    </div>
+
+</body>
+</html>
