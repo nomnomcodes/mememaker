@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
       reader.readAsDataURL(file);
     });
 
-    const arrayOfStrings = Array.from({ length: 50 }, (_, index) => index.toString());
+    const arrayOfStrings = Array.from({ length: 51 }, (_, index) => index.toString());
     generatePresetButtons(arrayOfStrings);
 
     function generatePresetButtons(presets) {
