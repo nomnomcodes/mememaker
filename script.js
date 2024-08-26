@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
       reader.readAsDataURL(file);
     });
 
-    const arrayOfStrings = Array.from({ length: 51 }, (_, index) => index.toString());
+    const arrayOfStrings = Array.from({ length: 50 }, (_, index) => index.toString());
     generatePresetButtons(arrayOfStrings);
 
     function generatePresetButtons(presets) {
@@ -97,13 +97,21 @@ document.addEventListener("DOMContentLoaded", function () {
           top: 100,
           angle: 0,
           padding: 10,
-          cornerSize: 10,
+          cornerSize: 15,
           hasRotatingPoint: true,
+          borderColor: 'lightblue', // Set the border color for selection
+          cornerColor: 'blue',  // Set the corner color for selection
+          cornerStyle: 'circle',
+          transparentCorners: false, // Corners filled with color
+          cornerStrokeColor: 'lightblue',   // Set the corner style to circle
+          borderScaleFactor: 3      // Set the border thickness
         });
         canvas.add(img);
         saveState();
       });
     }
+
+
 
     undoButton.addEventListener("click", function () {
       if (undoStack.length > 0) {

@@ -180,6 +180,7 @@ body {
     height: 40vh !important;
   }
   .action-buttons{
-    height: 130px;
-  }
+    height: auto;
+}
+
   }
