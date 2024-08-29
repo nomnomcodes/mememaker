@@ -214,7 +214,7 @@ header {
   margin: 5px;
   width: 80px;
   height: 80px;
-  background-size: cover;
+  background-size: 99%;
   border: none;
   cursor: pointer;
 }
