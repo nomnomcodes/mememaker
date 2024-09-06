@@ -64,12 +64,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   const folders = {
-    general:35,
+    general:42,
     cartoon: 20,
-    brands: 5,
+    brands: 8,
     gang: 18,
     music: 5,
-    bdsm: 5,
+    bdsm: 7,
   };
 
   const totalPresets = Object.values(folders).reduce((sum, num) => sum + num, 0);
