@@ -64,9 +64,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   const folders = {
-    general:33,
+    general:35,
+    cartoon: 20,
+    brands: 5,
     gang: 18,
-    cartoon: 13,
     music: 5,
     bdsm: 5,
   };
