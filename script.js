@@ -9,6 +9,231 @@ document.addEventListener("DOMContentLoaded", function () {
   const removeAllButton = document.getElementById("removeAll");
   const removeSelectedButton = document.getElementById("removeSelected");
   const presetsContainer = document.querySelector(".presets");
+  let imageUploaded = false; // Define the variable
+  const removeTextButton = document.getElementById("removeText"); // New button
+
+
+
+  // Define custom control points
+   fabric.Object.prototype.controls = {
+    ...fabric.Object.prototype.controls,
+    mt: new fabric.Control({
+      x: 0,
+      y: -0.5,
+      offsetY: -10,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.scalingY,
+      actionName: 'scaleY',
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.font = '20px Arial';
+        ctx.fillText('⬆', left - 10, top + 7);
+      },
+      cornerSize: 15
+    }),
+    mtRotate: new fabric.Control({
+      x: 0,
+      y: -0.5,
+      offsetY: -30,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.rotationWithSnapping,
+      actionName: 'rotate',
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.font = '20px Arial';
+        ctx.fillText('🔄', left - 10, top + 7);
+      },
+      cornerSize: 15
+    }),
+    mb: new fabric.Control({
+      x: 0,
+      y: 0.5,
+      offsetY: 10,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.scalingY,
+      actionName: 'scaleY',
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.font = '20px Arial';
+        ctx.fillText('⬇', left - 10, top + 7);
+      },
+      cornerSize: 15
+    }),
+    mbRotate: new fabric.Control({
+      x: 0,
+      y: 0.5,
+      offsetY: 30,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.rotationWithSnapping,
+      actionName: 'rotate',
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.font = '20px Arial';
+        ctx.fillText('🔄', left - 10, top + 7);
+      },
+      cornerSize: 15
+    }),
+    ml: new fabric.Control({
+      x: -0.5,
+      y: 0,
+      offsetX: -10,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.scalingX,
+      actionName: 'scaleX',
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.font = '20px Arial';
+        ctx.fillText('⬅', left - 10, top + 7);
+      },
+      cornerSize: 15
+    }),
+    mlRotate: new fabric.Control({
+      x: -0.5,
+      y: 0,
+      offsetX: -30,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.rotationWithSnapping,
+      actionName: 'rotate',
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.font = '20px Arial';
+        ctx.fillText('🔄', left - 10, top + 7);
+      },
+      cornerSize: 15
+    }),
+    mr: new fabric.Control({
+      x: 0.5,
+      y: 0,
+      offsetX: 10,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.scalingX,
+      actionName: 'scaleX',
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.font = '20px Arial';
+        ctx.fillText('➡', left - 10, top + 7);
+      },
+      cornerSize: 15
+    }),
+    mrRotate: new fabric.Control({
+      x: 0.5,
+      y: 0,
+      offsetX: 30,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.rotationWithSnapping,
+      actionName: 'rotate',
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.font = '20px Arial';
+        ctx.fillText('🔄', left - 10, top + 7);
+      },
+      cornerSize: 15
+    }),
+    tl: new fabric.Control({
+      x: -0.5,
+      y: -0.5,
+      offsetX: -10,
+      offsetY: -10,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.scalingEqually,
+      actionName: 'scale',
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.font = '20px Arial';
+        ctx.fillText('↖', left - 10, top + 7);
+      },
+      cornerSize: 15
+    }),
+    tlRotate: new fabric.Control({
+      x: -0.5,
+      y: -0.5,
+      offsetX: -30,
+      offsetY: -30,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.rotationWithSnapping,
+      actionName: 'rotate',
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.font = '20px Arial';
+        ctx.fillText('🔄', left - 10, top + 7);
+      },
+      cornerSize: 15
+    }),
+    tr: new fabric.Control({
+      x: 0.5,
+      y: -0.5,
+      offsetX: 10,
+      offsetY: -10,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.scalingEqually,
+      actionName: 'scale',
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.font = '20px Arial';
+        ctx.fillText('↗', left - 10, top + 7);
+      },
+      cornerSize: 15
+    }),
+    trRotate: new fabric.Control({
+      x: 0.5,
+      y: -0.5,
+      offsetX: 30,
+      offsetY: -30,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.rotationWithSnapping,
+      actionName: 'rotate',
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.font = '20px Arial';
+        ctx.fillText('🔄', left - 10, top + 7);
+      },
+      cornerSize: 15
+    }),
+    bl: new fabric.Control({
+      x: -0.5,
+      y: 0.5,
+      offsetX: -10,
+      offsetY: 10,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.scalingEqually,
+      actionName: 'scale',
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.font = '20px Arial';
+        ctx.fillText('↙', left - 10, top + 7);
+      },
+      cornerSize: 15
+    }),
+    blRotate: new fabric.Control({
+      x: -0.5,
+      y: 0.5,
+      offsetX: -30,
+      offsetY: 30,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.rotationWithSnapping,
+      actionName: 'rotate',
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.font = '20px Arial';
+        ctx.fillText('🔄', left - 10, top + 7);
+      },
+      cornerSize: 15
+    }),
+    br: new fabric.Control({
+      x: 0.5,
+      y: 0.5,
+      offsetX: 10,
+      offsetY: 10,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.scalingEqually,
+      actionName: 'scale',
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.font = '20px Arial';
+        ctx.fillText('↘', left - 10, top + 7);
+      },
+      cornerSize: 15
+    }),
+    brRotate: new fabric.Control({
+      x: 0.5,
+      y: 0.5,
+      offsetX: 30,
+      offsetY: 30,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.rotationWithSnapping,
+      actionName: 'rotate',
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.font = '20px Arial';
+        ctx.fillText('🔄', left - 10, top + 7);
+      },
+      cornerSize: 15
+    })
+  };
 
   let undoStack = [];
   let redoStack = [];
@@ -33,6 +258,109 @@ document.addEventListener("DOMContentLoaded", function () {
     redoStack = [];
   }
 
+ // Add text to canvas
+ document.getElementById('addText').addEventListener('click', function() {
+  if (!imageUploaded) {
+    alert("Please upload an image first.");
+    return;
+  }
+
+  const textInput = document.getElementById('textInput').value;
+  const textColor = document.getElementById('textColor').value;
+  const fontSize = parseInt(document.getElementById('fontSize').value, 10);
+  const isBold = document.getElementById('bold').checked;
+  const isItalic = document.getElementById('italic').checked;
+  const hasDropShadow = document.getElementById('dropShadow').checked;
+
+  const text = new fabric.Textbox(textInput, {
+    left: 100,
+    top: 100,
+    fill: textColor,
+    fontFamily: 'Impact',
+    fontSize: fontSize,
+    fontWeight: isBold ? 'bold' : 'normal',
+    fontStyle: isItalic ? 'italic' : 'normal',
+    shadow: hasDropShadow ? 'rgba(0,0,0,1) 2px 2px 5px' : ''
+  });
+  removeTextButton.disabled = false; // Enable removeText button
+
+  canvas.add(text);
+});
+
+ // Update selected text object
+ canvas.on('selection:created', function(e) {
+  const activeObject = e.target;
+  if (activeObject && activeObject.type === 'textbox') {
+    document.getElementById('textInput').value = activeObject.text;
+    document.getElementById('textColor').value = activeObject.fill;
+    document.getElementById('fontSize').value = activeObject.fontSize;
+    document.getElementById('bold').checked = activeObject.fontWeight === 'bold';
+    document.getElementById('italic').checked = activeObject.fontStyle === 'italic';
+    document.getElementById('dropShadow').checked = !!activeObject.shadow;
+  }
+});
+
+document.getElementById('textInput').addEventListener('input', function() {
+  const activeObject = canvas.getActiveObject();
+  if (activeObject && activeObject.type === 'textbox') {
+    activeObject.set('text', this.value);
+    canvas.renderAll();
+  }
+});
+
+document.getElementById('textColor').addEventListener('input', function() {
+  const activeObject = canvas.getActiveObject();
+  if (activeObject && activeObject.type === 'textbox') {
+    activeObject.set('fill', this.value);
+    canvas.renderAll();
+  }
+});
+
+textInput.addEventListener('input', function() {
+  addTextButton.disabled = textInput.value.trim().length === 0;
+});
+
+document.getElementById('fontSize').addEventListener('input', function() {
+  const activeObject = canvas.getActiveObject();
+  if (activeObject && activeObject.type === 'textbox') {
+    activeObject.set('fontSize', parseInt(this.value, 10));
+    canvas.renderAll();
+  }
+});
+
+  // Remove selected text object
+  removeTextButton.addEventListener('click', function() {
+    const activeObject = canvas.getActiveObject();
+    if (activeObject && activeObject.type === 'textbox') {
+      canvas.remove(activeObject);
+      saveState();
+    }
+  });
+
+document.getElementById('bold').addEventListener('change', function() {
+  const activeObject = canvas.getActiveObject();
+  if (activeObject && activeObject.type === 'textbox') {
+    activeObject.set('fontWeight', this.checked ? 'bold' : 'normal');
+    canvas.renderAll();
+  }
+});
+
+document.getElementById('italic').addEventListener('change', function() {
+  const activeObject = canvas.getActiveObject();
+  if (activeObject && activeObject.type === 'textbox') {
+    activeObject.set('fontStyle', this.checked ? 'italic' : 'normal');
+    canvas.renderAll();
+  }
+});
+
+document.getElementById('dropShadow').addEventListener('change', function() {
+  const activeObject = canvas.getActiveObject();
+  if (activeObject && activeObject.type === 'textbox') {
+    activeObject.set('shadow', this.checked ? 'rgba(0,0,0,1) 2px 2px 5px' : '');
+    canvas.renderAll();
+  }
+});
+
   // Upload Image to Canvas and Set as Background
   uploadInput.addEventListener("change", function (e) {
     const file = e.target.files[0];
@@ -55,6 +383,9 @@ document.addEventListener("DOMContentLoaded", function () {
           });
 
           enableButtons();
+          document.getElementById('addText').disabled = false;
+          imageUploaded = true; // Update the variable
+
           saveState();
         },
         { crossOrigin: "anonymous" }
@@ -64,8 +395,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   const folders = {
-    general:42,
-    cartoon: 20,
+    general:44,
+    cartoon: 25,
     brands: 8,
     gang: 18,
     music: 5,
@@ -119,13 +450,7 @@ document.getElementById('presetstitle').innerText += ` (${totalPresets})`;
     });
   }
 
-
   function addPresetImage(src) {
-    const existingObject = canvas.getObjects().find((obj) => obj.getSrc() === src);
-    if (existingObject) {
-      return;
-    }
-
     fabric.Image.fromURL(src, function (img) {
       img.set({
         left: 100,
@@ -141,6 +466,19 @@ document.getElementById('presetstitle').innerText += ` (${totalPresets})`;
         cornerStrokeColor: 'lightblue',   // Set the corner style to circle
         borderScaleFactor: 3      // Set the border thickness
       });
+
+      // Enable rotation control points on all corners and sides
+      img.setControlsVisibility({
+        mt: true, // middle top
+        mb: true, // middle bottom
+        ml: true, // middle left
+        mr: true, // middle right
+        tl: true, // top left
+        tr: true, // top right
+        bl: true, // bottom left
+        br: true  // bottom right
+      });
+
       canvas.add(img);
       saveState();
     });
