@@ -15,225 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // Define custom control points
-   fabric.Object.prototype.controls = {
-    ...fabric.Object.prototype.controls,
-    mt: new fabric.Control({
-      x: 0,
-      y: -0.5,
-      offsetY: -10,
-      cursorStyle: 'pointer',
-      actionHandler: fabric.controlsUtils.scalingY,
-      actionName: 'scaleY',
-      render: function(ctx, left, top, styleOverride, fabricObject) {
-        ctx.font = '20px Arial';
-        ctx.fillText('⬆', left - 10, top + 7);
-      },
-      cornerSize: 15
-    }),
-    mtRotate: new fabric.Control({
-      x: 0,
-      y: -0.5,
-      offsetY: -30,
-      cursorStyle: 'pointer',
-      actionHandler: fabric.controlsUtils.rotationWithSnapping,
-      actionName: 'rotate',
-      render: function(ctx, left, top, styleOverride, fabricObject) {
-        ctx.font = '20px Arial';
-        ctx.fillText('🔄', left - 10, top + 7);
-      },
-      cornerSize: 15
-    }),
-    mb: new fabric.Control({
-      x: 0,
-      y: 0.5,
-      offsetY: 10,
-      cursorStyle: 'pointer',
-      actionHandler: fabric.controlsUtils.scalingY,
-      actionName: 'scaleY',
-      render: function(ctx, left, top, styleOverride, fabricObject) {
-        ctx.font = '20px Arial';
-        ctx.fillText('⬇', left - 10, top + 7);
-      },
-      cornerSize: 15
-    }),
-    mbRotate: new fabric.Control({
-      x: 0,
-      y: 0.5,
-      offsetY: 30,
-      cursorStyle: 'pointer',
-      actionHandler: fabric.controlsUtils.rotationWithSnapping,
-      actionName: 'rotate',
-      render: function(ctx, left, top, styleOverride, fabricObject) {
-        ctx.font = '20px Arial';
-        ctx.fillText('🔄', left - 10, top + 7);
-      },
-      cornerSize: 15
-    }),
-    ml: new fabric.Control({
-      x: -0.5,
-      y: 0,
-      offsetX: -10,
-      cursorStyle: 'pointer',
-      actionHandler: fabric.controlsUtils.scalingX,
-      actionName: 'scaleX',
-      render: function(ctx, left, top, styleOverride, fabricObject) {
-        ctx.font = '20px Arial';
-        ctx.fillText('⬅', left - 10, top + 7);
-      },
-      cornerSize: 15
-    }),
-    mlRotate: new fabric.Control({
-      x: -0.5,
-      y: 0,
-      offsetX: -30,
-      cursorStyle: 'pointer',
-      actionHandler: fabric.controlsUtils.rotationWithSnapping,
-      actionName: 'rotate',
-      render: function(ctx, left, top, styleOverride, fabricObject) {
-        ctx.font = '20px Arial';
-        ctx.fillText('🔄', left - 10, top + 7);
-      },
-      cornerSize: 15
-    }),
-    mr: new fabric.Control({
-      x: 0.5,
-      y: 0,
-      offsetX: 10,
-      cursorStyle: 'pointer',
-      actionHandler: fabric.controlsUtils.scalingX,
-      actionName: 'scaleX',
-      render: function(ctx, left, top, styleOverride, fabricObject) {
-        ctx.font = '20px Arial';
-        ctx.fillText('➡', left - 10, top + 7);
-      },
-      cornerSize: 15
-    }),
-    mrRotate: new fabric.Control({
-      x: 0.5,
-      y: 0,
-      offsetX: 30,
-      cursorStyle: 'pointer',
-      actionHandler: fabric.controlsUtils.rotationWithSnapping,
-      actionName: 'rotate',
-      render: function(ctx, left, top, styleOverride, fabricObject) {
-        ctx.font = '20px Arial';
-        ctx.fillText('🔄', left - 10, top + 7);
-      },
-      cornerSize: 15
-    }),
-    tl: new fabric.Control({
-      x: -0.5,
-      y: -0.5,
-      offsetX: -10,
-      offsetY: -10,
-      cursorStyle: 'pointer',
-      actionHandler: fabric.controlsUtils.scalingEqually,
-      actionName: 'scale',
-      render: function(ctx, left, top, styleOverride, fabricObject) {
-        ctx.font = '20px Arial';
-        ctx.fillText('↖', left - 10, top + 7);
-      },
-      cornerSize: 15
-    }),
-    tlRotate: new fabric.Control({
-      x: -0.5,
-      y: -0.5,
-      offsetX: -30,
-      offsetY: -30,
-      cursorStyle: 'pointer',
-      actionHandler: fabric.controlsUtils.rotationWithSnapping,
-      actionName: 'rotate',
-      render: function(ctx, left, top, styleOverride, fabricObject) {
-        ctx.font = '20px Arial';
-        ctx.fillText('🔄', left - 10, top + 7);
-      },
-      cornerSize: 15
-    }),
-    tr: new fabric.Control({
-      x: 0.5,
-      y: -0.5,
-      offsetX: 10,
-      offsetY: -10,
-      cursorStyle: 'pointer',
-      actionHandler: fabric.controlsUtils.scalingEqually,
-      actionName: 'scale',
-      render: function(ctx, left, top, styleOverride, fabricObject) {
-        ctx.font = '20px Arial';
-        ctx.fillText('↗', left - 10, top + 7);
-      },
-      cornerSize: 15
-    }),
-    trRotate: new fabric.Control({
-      x: 0.5,
-      y: -0.5,
-      offsetX: 30,
-      offsetY: -30,
-      cursorStyle: 'pointer',
-      actionHandler: fabric.controlsUtils.rotationWithSnapping,
-      actionName: 'rotate',
-      render: function(ctx, left, top, styleOverride, fabricObject) {
-        ctx.font = '20px Arial';
-        ctx.fillText('🔄', left - 10, top + 7);
-      },
-      cornerSize: 15
-    }),
-    bl: new fabric.Control({
-      x: -0.5,
-      y: 0.5,
-      offsetX: -10,
-      offsetY: 10,
-      cursorStyle: 'pointer',
-      actionHandler: fabric.controlsUtils.scalingEqually,
-      actionName: 'scale',
-      render: function(ctx, left, top, styleOverride, fabricObject) {
-        ctx.font = '20px Arial';
-        ctx.fillText('↙', left - 10, top + 7);
-      },
-      cornerSize: 15
-    }),
-    blRotate: new fabric.Control({
-      x: -0.5,
-      y: 0.5,
-      offsetX: -30,
-      offsetY: 30,
-      cursorStyle: 'pointer',
-      actionHandler: fabric.controlsUtils.rotationWithSnapping,
-      actionName: 'rotate',
-      render: function(ctx, left, top, styleOverride, fabricObject) {
-        ctx.font = '20px Arial';
-        ctx.fillText('🔄', left - 10, top + 7);
-      },
-      cornerSize: 15
-    }),
-    br: new fabric.Control({
-      x: 0.5,
-      y: 0.5,
-      offsetX: 10,
-      offsetY: 10,
-      cursorStyle: 'pointer',
-      actionHandler: fabric.controlsUtils.scalingEqually,
-      actionName: 'scale',
-      render: function(ctx, left, top, styleOverride, fabricObject) {
-        ctx.font = '20px Arial';
-        ctx.fillText('↘', left - 10, top + 7);
-      },
-      cornerSize: 15
-    }),
-    brRotate: new fabric.Control({
-      x: 0.5,
-      y: 0.5,
-      offsetX: 30,
-      offsetY: 30,
-      cursorStyle: 'pointer',
-      actionHandler: fabric.controlsUtils.rotationWithSnapping,
-      actionName: 'rotate',
-      render: function(ctx, left, top, styleOverride, fabricObject) {
-        ctx.font = '20px Arial';
-        ctx.fillText('🔄', left - 10, top + 7);
-      },
-      cornerSize: 15
-    })
-  };
 
   let undoStack = [];
   let redoStack = [];
@@ -457,15 +238,268 @@ document.getElementById('presetstitle').innerText += ` (${totalPresets})`;
         top: 100,
         angle: 0,
         padding: 10,
-        cornerSize: 15,
-        hasRotatingPoint: true,
+        cornerSize: 45,
+        hasRotatingPoint: false,
         borderColor: 'lightblue', // Set the border color for selection
-        cornerColor: 'blue',  // Set the corner color for selection
         cornerStyle: 'circle',
+        cornerColor: 'blue',
         transparentCorners: false, // Corners filled with color
         cornerStrokeColor: 'lightblue',   // Set the corner style to circle
         borderScaleFactor: 3      // Set the border thickness
       });
+
+
+
+   fabric.Object.prototype.controls = {
+    ...fabric.Object.prototype.controls,
+    mt: new fabric.Control({
+      x: 0,
+      y: -0.5,
+      offsetY: -10,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.scalingY,
+      actionName: 'scaleY',
+      cornerSize: 45
+    }),
+    mtRotate: new fabric.Control({
+      x: 0,
+      y: -0.5,
+      offsetY: -60,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.rotationWithSnapping,
+      actionName: 'rotate',
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.save();
+        ctx.fillStyle = 'red'; // Fill color
+        ctx.strokeStyle = 'red'; // Border color
+        ctx.lineWidth = 20;
+        ctx.beginPath();
+        ctx.arc(left, top, 10, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+      },
+      cornerSize: 15
+    }),
+    mb: new fabric.Control({
+      x: 0,
+      y: 0.5,
+      offsetY: 10,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.scalingY,
+      actionName: 'scaleY',
+
+      cornerSize: 45
+    }),
+    mbRotate: new fabric.Control({
+      x: 0,
+      y: 0.5,
+      offsetY: 60,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.rotationWithSnapping,
+      actionName: 'rotate',
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.save();
+        ctx.fillStyle = 'red'; // Fill color
+        ctx.strokeStyle = 'red'; // Border color
+        ctx.lineWidth = 20;
+        ctx.beginPath();
+        ctx.arc(left, top, 10, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+      },
+      cornerSize: 45
+    }),
+    ml: new fabric.Control({
+      x: -0.5,
+      y: 0,
+      offsetX: -10,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.scalingX,
+      actionName: 'scaleX',
+
+      cornerSize: 45
+    }),
+    mlRotate: new fabric.Control({
+      x: -0.5,
+      y: 0,
+      offsetX: -60,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.rotationWithSnapping,
+      actionName: 'rotate',
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.save();
+        ctx.fillStyle = 'red'; // Fill color
+        ctx.strokeStyle = 'red'; // Border color
+        ctx.lineWidth = 20;
+        ctx.beginPath();
+        ctx.arc(left, top, 10, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+      },
+      cornerSize: 45
+    }),
+    mr: new fabric.Control({
+      x: 0.5,
+      y: 0,
+      offsetX: 10,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.scalingX,
+      actionName: 'scaleX',
+
+      cornerSize: 45
+    }),
+    mrRotate: new fabric.Control({
+      x: 0.5,
+      y: 0,
+      offsetX: 60,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.rotationWithSnapping,
+      actionName: 'rotate',
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.save();
+        ctx.fillStyle = 'red'; // Fill color
+        ctx.strokeStyle = 'red'; // Border color
+        ctx.lineWidth = 20;
+        ctx.beginPath();
+        ctx.arc(left, top, 10, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+      },
+      cornerSize: 45
+    }),
+    tl: new fabric.Control({
+      x: -0.5,
+      y: -0.5,
+      offsetX: -10,
+      offsetY: -10,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.scalingEqually,
+      actionName: 'scale',
+
+      cornerSize: 45
+    }),
+    tlRotate: new fabric.Control({
+      x: -0.5,
+      y: -0.5,
+      offsetX: -60,
+      offsetY: -60,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.rotationWithSnapping,
+      actionName: 'rotate',
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.save();
+        ctx.fillStyle = 'red'; // Fill color
+        ctx.strokeStyle = 'red'; // Border color
+        ctx.lineWidth = 20;
+        ctx.beginPath();
+        ctx.arc(left, top, 10, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+      },
+      cornerSize: 45
+    }),
+    tr: new fabric.Control({
+      x: 0.5,
+      y: -0.5,
+      offsetX: 10,
+      offsetY: -10,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.scalingEqually,
+      actionName: 'scale',
+
+      cornerSize: 45
+    }),
+    trRotate: new fabric.Control({
+      x: 0.5,
+      y: -0.5,
+      offsetX: 60,
+      offsetY: -60,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.rotationWithSnapping,
+      actionName: 'rotate',
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.save();
+        ctx.fillStyle = 'red'; // Fill color
+        ctx.strokeStyle = 'red'; // Border color
+        ctx.lineWidth = 20;
+        ctx.beginPath();
+        ctx.arc(left, top, 10, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+      },
+      cornerSize: 45
+    }),
+    bl: new fabric.Control({
+      x: -0.5,
+      y: 0.5,
+      offsetX: -10,
+      offsetY: 10,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.scalingEqually,
+      actionName: 'scale',
+
+      cornerSize: 45
+    }),
+    blRotate: new fabric.Control({
+      x: -0.5,
+      y: 0.5,
+      offsetX: -60,
+      offsetY: 60,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.rotationWithSnapping,
+      actionName: 'rotate',
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.save();
+        ctx.fillStyle = 'red'; // Fill color
+        ctx.strokeStyle = 'red'; // Border color
+        ctx.lineWidth = 20;
+        ctx.beginPath();
+        ctx.arc(left, top, 10, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+      },
+      cornerSize: 45
+    }),
+    br: new fabric.Control({
+      x: 0.5,
+      y: 0.5,
+      offsetX: 10,
+      offsetY: 10,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.scalingEqually,
+      actionName: 'scale',
+
+      cornerSize: 45
+    }),
+    brRotate: new fabric.Control({
+      x: 0.5,
+      y: 0.5,
+      offsetX: 60,
+      offsetY: 60,
+      cursorStyle: 'pointer',
+      actionHandler: fabric.controlsUtils.rotationWithSnapping,
+      actionName: 'rotate',
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.save();
+        ctx.fillStyle = 'red'; // Fill color
+        ctx.strokeStyle = 'red'; // Border color
+        ctx.lineWidth = 20;
+        ctx.beginPath();
+        ctx.arc(left, top, 10, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+      },
+      cornerSize: 45
+    })
+  };
 
       // Enable rotation control points on all corners and sides
       img.setControlsVisibility({
@@ -476,7 +510,8 @@ document.getElementById('presetstitle').innerText += ` (${totalPresets})`;
         tl: true, // top left
         tr: true, // top right
         bl: true, // bottom left
-        br: true  // bottom right
+        br: true , // bottom right
+        mtr: false
       });
 
       canvas.add(img);
