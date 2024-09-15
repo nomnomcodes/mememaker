@@ -259,7 +259,18 @@ document.getElementById('presetstitle').innerText += ` (${totalPresets})`;
       cursorStyle: 'pointer',
       actionHandler: fabric.controlsUtils.scalingY,
       actionName: 'scaleY',
-      cornerSize: 45
+      cornerSize: 45,
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.save();
+        ctx.fillStyle = 'blue'; // Fill color
+        ctx.strokeStyle = 'blue'; // Border color
+        ctx.lineWidth = window.innerWidth >= 768 ? 5 : 20;
+        ctx.beginPath();
+        ctx.arc(left, top, 10, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+      },
     }),
     mtRotate: new fabric.Control({
       x: 0,
@@ -272,7 +283,7 @@ document.getElementById('presetstitle').innerText += ` (${totalPresets})`;
         ctx.save();
         ctx.fillStyle = 'red'; // Fill color
         ctx.strokeStyle = 'red'; // Border color
-        ctx.lineWidth = 20;
+        ctx.lineWidth = window.innerWidth >= 768 ? 5 : 20;
         ctx.beginPath();
         ctx.arc(left, top, 10, 0, 2 * Math.PI);
         ctx.fill();
@@ -288,7 +299,17 @@ document.getElementById('presetstitle').innerText += ` (${totalPresets})`;
       cursorStyle: 'pointer',
       actionHandler: fabric.controlsUtils.scalingY,
       actionName: 'scaleY',
-
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.save();
+        ctx.fillStyle = 'blue'; // Fill color
+        ctx.strokeStyle = 'blue'; // Border color
+        ctx.lineWidth = window.innerWidth >= 768 ? 5 : 20;
+        ctx.beginPath();
+        ctx.arc(left, top, 10, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+      },
       cornerSize: 45
     }),
     mbRotate: new fabric.Control({
@@ -302,7 +323,7 @@ document.getElementById('presetstitle').innerText += ` (${totalPresets})`;
         ctx.save();
         ctx.fillStyle = 'red'; // Fill color
         ctx.strokeStyle = 'red'; // Border color
-        ctx.lineWidth = 20;
+        ctx.lineWidth = window.innerWidth >= 768 ? 5 : 20;
         ctx.beginPath();
         ctx.arc(left, top, 10, 0, 2 * Math.PI);
         ctx.fill();
@@ -318,7 +339,17 @@ document.getElementById('presetstitle').innerText += ` (${totalPresets})`;
       cursorStyle: 'pointer',
       actionHandler: fabric.controlsUtils.scalingX,
       actionName: 'scaleX',
-
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.save();
+        ctx.fillStyle = 'blue'; // Fill color
+        ctx.strokeStyle = 'blue'; // Border color
+        ctx.lineWidth = window.innerWidth >= 768 ? 5 : 20;
+        ctx.beginPath();
+        ctx.arc(left, top, 10, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+      },
       cornerSize: 45
     }),
     mlRotate: new fabric.Control({
@@ -332,7 +363,7 @@ document.getElementById('presetstitle').innerText += ` (${totalPresets})`;
         ctx.save();
         ctx.fillStyle = 'red'; // Fill color
         ctx.strokeStyle = 'red'; // Border color
-        ctx.lineWidth = 20;
+        ctx.lineWidth = window.innerWidth >= 768 ? 5 : 20;
         ctx.beginPath();
         ctx.arc(left, top, 10, 0, 2 * Math.PI);
         ctx.fill();
@@ -348,7 +379,17 @@ document.getElementById('presetstitle').innerText += ` (${totalPresets})`;
       cursorStyle: 'pointer',
       actionHandler: fabric.controlsUtils.scalingX,
       actionName: 'scaleX',
-
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.save();
+        ctx.fillStyle = 'blue'; // Fill color
+        ctx.strokeStyle = 'blue'; // Border color
+        ctx.lineWidth = window.innerWidth >= 768 ? 5 : 20;
+        ctx.beginPath();
+        ctx.arc(left, top, 10, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+      },
       cornerSize: 45
     }),
     mrRotate: new fabric.Control({
@@ -362,7 +403,7 @@ document.getElementById('presetstitle').innerText += ` (${totalPresets})`;
         ctx.save();
         ctx.fillStyle = 'red'; // Fill color
         ctx.strokeStyle = 'red'; // Border color
-        ctx.lineWidth = 20;
+        ctx.lineWidth = window.innerWidth >= 768 ? 5 : 20;
         ctx.beginPath();
         ctx.arc(left, top, 10, 0, 2 * Math.PI);
         ctx.fill();
@@ -379,7 +420,17 @@ document.getElementById('presetstitle').innerText += ` (${totalPresets})`;
       cursorStyle: 'pointer',
       actionHandler: fabric.controlsUtils.scalingEqually,
       actionName: 'scale',
-
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.save();
+        ctx.fillStyle = 'blue'; // Fill color
+        ctx.strokeStyle = 'blue'; // Border color
+        ctx.lineWidth = window.innerWidth >= 768 ? 5 : 20;
+        ctx.beginPath();
+        ctx.arc(left, top, 10, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+      },
       cornerSize: 45
     }),
     tlRotate: new fabric.Control({
@@ -394,7 +445,7 @@ document.getElementById('presetstitle').innerText += ` (${totalPresets})`;
         ctx.save();
         ctx.fillStyle = 'red'; // Fill color
         ctx.strokeStyle = 'red'; // Border color
-        ctx.lineWidth = 20;
+        ctx.lineWidth = window.innerWidth >= 768 ? 5 : 20;
         ctx.beginPath();
         ctx.arc(left, top, 10, 0, 2 * Math.PI);
         ctx.fill();
@@ -411,7 +462,17 @@ document.getElementById('presetstitle').innerText += ` (${totalPresets})`;
       cursorStyle: 'pointer',
       actionHandler: fabric.controlsUtils.scalingEqually,
       actionName: 'scale',
-
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.save();
+        ctx.fillStyle = 'blue'; // Fill color
+        ctx.strokeStyle = 'blue'; // Border color
+        ctx.lineWidth = window.innerWidth >= 768 ? 5 : 20;
+        ctx.beginPath();
+        ctx.arc(left, top, 10, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+      },
       cornerSize: 45
     }),
     trRotate: new fabric.Control({
@@ -426,7 +487,7 @@ document.getElementById('presetstitle').innerText += ` (${totalPresets})`;
         ctx.save();
         ctx.fillStyle = 'red'; // Fill color
         ctx.strokeStyle = 'red'; // Border color
-        ctx.lineWidth = 20;
+        ctx.lineWidth = window.innerWidth >= 768 ? 5 : 20;
         ctx.beginPath();
         ctx.arc(left, top, 10, 0, 2 * Math.PI);
         ctx.fill();
@@ -443,7 +504,17 @@ document.getElementById('presetstitle').innerText += ` (${totalPresets})`;
       cursorStyle: 'pointer',
       actionHandler: fabric.controlsUtils.scalingEqually,
       actionName: 'scale',
-
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.save();
+        ctx.fillStyle = 'blue'; // Fill color
+        ctx.strokeStyle = 'blue'; // Border color
+        ctx.lineWidth = window.innerWidth >= 768 ? 5 : 20;
+        ctx.beginPath();
+        ctx.arc(left, top, 10, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+      },
       cornerSize: 45
     }),
     blRotate: new fabric.Control({
@@ -458,7 +529,7 @@ document.getElementById('presetstitle').innerText += ` (${totalPresets})`;
         ctx.save();
         ctx.fillStyle = 'red'; // Fill color
         ctx.strokeStyle = 'red'; // Border color
-        ctx.lineWidth = 20;
+        ctx.lineWidth = window.innerWidth >= 768 ? 5 : 20;
         ctx.beginPath();
         ctx.arc(left, top, 10, 0, 2 * Math.PI);
         ctx.fill();
@@ -475,7 +546,17 @@ document.getElementById('presetstitle').innerText += ` (${totalPresets})`;
       cursorStyle: 'pointer',
       actionHandler: fabric.controlsUtils.scalingEqually,
       actionName: 'scale',
-
+      render: function(ctx, left, top, styleOverride, fabricObject) {
+        ctx.save();
+        ctx.fillStyle = 'blue'; // Fill color
+        ctx.strokeStyle = 'blue'; // Border color
+        ctx.lineWidth = window.innerWidth >= 768 ? 5 : 20;
+        ctx.beginPath();
+        ctx.arc(left, top, 10, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+      },
       cornerSize: 45
     }),
     brRotate: new fabric.Control({
@@ -490,7 +571,7 @@ document.getElementById('presetstitle').innerText += ` (${totalPresets})`;
         ctx.save();
         ctx.fillStyle = 'red'; // Fill color
         ctx.strokeStyle = 'red'; // Border color
-        ctx.lineWidth = 20;
+        ctx.lineWidth = window.innerWidth >= 768 ? 5 : 20;
         ctx.beginPath();
         ctx.arc(left, top, 10, 0, 2 * Math.PI);
         ctx.fill();
