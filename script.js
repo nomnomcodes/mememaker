@@ -177,7 +177,7 @@ document.getElementById('dropShadow').addEventListener('change', function() {
 
   const folders = {
     general:47,
-    cartoon: 27,
+    cartoon: 32,
     brands: 8,
     gang: 18,
     music: 5,
