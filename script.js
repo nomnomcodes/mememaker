@@ -180,7 +180,7 @@ document.getElementById('dropShadow').addEventListener('change', function() {
     cartoon: 58,
     brands: 8,
     gang: 18,
-    music: 5,
+    music: 7,
     bdsm: 7,
   };
 
