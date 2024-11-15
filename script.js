@@ -177,10 +177,10 @@ document.getElementById('dropShadow').addEventListener('change', function() {
 
   const folders = {
     general:64,
-    cartoon: 85,
-    brands: 8,
+    cartoon: 90,
+    brands: 11,
     gang: 18,
-    music: 7,
+    music: 8,
     bdsm: 7,
   };
 
