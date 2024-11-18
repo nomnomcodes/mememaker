@@ -176,9 +176,9 @@ document.getElementById('dropShadow').addEventListener('change', function() {
   });
 
   const folders = {
-    cartoon: 96,
+    cartoon: 100,
     general:72,
-    brands: 11,
+    brands: 13,
     gang: 18,
     music: 8,
     bdsm: 7,
