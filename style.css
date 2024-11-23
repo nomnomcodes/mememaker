@@ -240,3 +240,4 @@ canvas {
   color: #fff;
   padding: 2;
 }
+#loadingMessage{ font-size:32px; padding:30px;}

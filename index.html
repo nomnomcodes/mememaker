@@ -6,6 +6,8 @@
     <title>Nomnom meme editor</title>
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+
     <script src="script.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <meta property="og:url" content="https://nomnom-meme-maker.vercel.app/" />
@@ -39,13 +41,25 @@
     </header>
     <div class="container gaegu-regular">
       <div class="top-button">
-        <label for="uploadImage" class="upload-button">📷 Upload Image</label>
+        <label for="uploadImage" id="uploadButton" class="upload-button">📷 Upload Image</label>
         <input
           type="file"
           id="uploadImage"
           accept="image/*"
           style="display: none"
         />
+
+        <label for="downloadPfps" id="downloadPfpsLabel" class="upload-button"
+          >⬇️ Download Pfps</label
+        >
+
+        <label
+        for="downloadAllPfps"
+        id="downloadAllPfps"
+        style="display: none"
+        class="upload-button"
+        >⬇️ Download All</label
+      >
       </div>
       <div class="action-buttons">
         <button id="undo" disabled>Undo</button>
@@ -69,6 +83,17 @@
       <canvas id="canvas" width="800" height="600"></canvas>
       <div class="presets">
         <h2 id="presetstitle">nomnom pfps</h2>
+        <h3 id="presetmessage" style="display: none">
+          Click on any pfps you want to download (it will download
+          automatically), or download all pfps
+        </h3>
+
+
+
+        <div id="loadingMessage" style="display: none">
+          Loading the zip file, please wait the file will be downloaded in
+          <span id="countdown">10</span> seconds...
+        </div>
         <div id="accordion"></div>
       </div>
       <div class="button-container">
@@ -77,9 +102,8 @@
         </button>
       </div>
     </div>
-
     <div class="donate">
-      This website is done by community member of $nommom. 
+      This website is done by community member of $nommom.
       <br />
       Please consider donate any solana tokens to support my work:<b>
         6goKNuUSt7cRc4MpB1WsDxisfbKz7qDnoyWwANkvabXq</b
