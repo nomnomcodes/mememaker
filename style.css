@@ -161,7 +161,9 @@ canvas {
 }
 
 @media (max-width: 1023px) {
-
+.action-buttons{
+  margin-top:100px;
+}
 
 
   canvas {
@@ -240,4 +242,5 @@ canvas {
   color: #fff;
   padding: 2;
 }
+
 #loadingMessage{ font-size:32px; padding:30px;}

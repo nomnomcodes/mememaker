@@ -27,13 +27,17 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector("#downloadAllPfps").style.display = "inline-block";
         document.querySelector("#download").style.display = "none";
         document.querySelector('#uploadButton').style.display = "none";
+        document.querySelector('#presets').style.marginTop = "100px";
         this.textContent = "⬅️ Back to Editor"; // Change button text
         enableButtons();
       } else {
         // Revert to editor mode
         document.querySelector('#uploadButton').style.display = "inline-block";
+        document.querySelector('#presets').style.marginTop = "0px";
 
         document.querySelector(".action-buttons").style.display = "block";
+        document.querySelector('.action-buttons').style.marginTop = "100px";
+
         document.querySelector(".text-controls").style.display = "block";
         document.querySelector(".canvas-container").style.display = "block";
         document.querySelector("#presetmessage").style.display = "none";
@@ -232,7 +236,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
   const loadingMessage = document.getElementById("loadingMessage");
   const countdownElement = document.getElementById("countdown");
-  let countdown = 10;
+  let countdown = 20;
 
   // Function to start the countdown
   function startCountdown() {
