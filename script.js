@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   const folders = {
-    cartoon: 100,
+    cartoon: 101,
     general: 72,
     brands: 13,
     gang: 18,
