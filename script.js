@@ -227,12 +227,16 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   const folders = {
+    original:3,
+    heads:4,
+    ai: 11,
     cartoon: 143,
-    general: 77,
-    brands: 13,
+    general: 97,
+    brands: 17,
     gang: 18,
     music: 8,
     bdsm: 7,
+
   };
   const loadingMessage = document.getElementById("loadingMessage");
   const countdownElement = document.getElementById("countdown");
@@ -297,10 +301,21 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         const folderPromises = presets.map(async (preset) => {
-          const imageSrc = `./presets/${folder}/${preset}.png`;
-          const response = await fetch(imageSrc);
-          const blob = await response.blob();
-          zip.file(`${folder}/${preset}.png`, blob);
+          let imageSrc = `./presets/${folder}/${preset}.png`;
+          let response = await fetch(imageSrc);
+
+          // If PNG fails, try WebP
+          if (!response.ok) {
+            imageSrc = `./presets/${folder}/${preset}.webp`;
+            response = await fetch(imageSrc);
+          }
+
+          if (response.ok) {
+            const blob = await response.blob();
+            // Use the actual extension from the successful fetch
+            const extension = imageSrc.endsWith('.webp') ? '.webp' : '.png';
+            zip.file(`${folder}/${preset}${extension}`, blob);
+          }
         });
 
         await Promise.all(folderPromises);
@@ -337,7 +352,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function generateAccordion(folders) {
     const accordion = document.getElementById("accordion");
 
-    Object.keys(folders).forEach((folder) => {
+    for (const folder of Object.keys(folders)) {
       const presetCount = folders[folder];
       const presets = Array.from({ length: presetCount }, (_, index) =>
         index.toString()
@@ -358,11 +373,29 @@ document.addEventListener("DOMContentLoaded", function () {
       presets.forEach((preset) => {
         const button = document.createElement("button");
         button.className = "preset-button";
-        button.dataset.image = `./presets/${folder}/${preset}.png`;
         button.disabled = true;
-
         button.id = `preset-${folder}-${preset}`;
-        button.style.backgroundImage = `url(./presets/${folder}/${preset}.png)`;
+
+        // Default to PNG, but we'll handle both formats in the click handler
+        let imageSrc = `./presets/${folder}/${preset}.png`;
+
+        button.dataset.image = imageSrc;
+        button.dataset.folder = folder;
+        button.dataset.preset = preset;
+        button.style.backgroundImage = `url(${imageSrc})`;
+
+        // Handle image load error by trying WebP format
+        const img = new Image();
+        img.onload = function() {
+          // PNG loaded successfully, keep it
+        };
+        img.onerror = function() {
+          // PNG failed, try WebP
+          const webpSrc = `./presets/${folder}/${preset}.webp`;
+          button.dataset.image = webpSrc;
+          button.style.backgroundImage = `url(${webpSrc})`;
+        };
+        img.src = imageSrc;
 
         button.addEventListener("click", function () {
           // Check if the accordion has the 'pfpDownload' class
@@ -383,7 +416,7 @@ document.addEventListener("DOMContentLoaded", function () {
       folderContainer.appendChild(folderHeader);
       folderContainer.appendChild(folderContent);
       accordion.appendChild(folderContainer);
-    });
+    }
   }
 
   function addPresetImage(src) {
