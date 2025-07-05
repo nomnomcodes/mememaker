@@ -1,0 +1,66 @@
+{
+  "name": "Nomnom Meme Editor",
+  "short_name": "Meme Editor",
+  "description": "Create and edit memes with nomnom pfps and custom text",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffd49b",
+  "theme_color": "#ffd49b",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "categories": ["entertainment", "photo", "productivity"],
+  "lang": "en",
+  "icons": [
+    {
+      "src": "logo-nav.png",
+      "sizes": "200x50",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "presets/general/3.png",
+      "sizes": "800x600",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "features": [
+    "cross-platform",
+    "offline-capable",
+    "touch-friendly"
+  ],
+  "shortcuts": [
+    {
+      "name": "Upload Image",
+      "short_name": "Upload",
+      "description": "Upload a new image to edit",
+      "url": "/#upload",
+      "icons": [
+        {
+          "src": "favicon.ico",
+          "sizes": "32x32"
+        }
+      ]
+    },
+    {
+      "name": "Download Pfps",
+      "short_name": "Pfps",
+      "description": "Download pfp collection",
+      "url": "/#pfps",
+      "icons": [
+        {
+          "src": "favicon.ico",
+          "sizes": "32x32"
+        }
+      ]
+    }
+  ]
+}
