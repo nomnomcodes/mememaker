@@ -68,8 +68,6 @@ button,
   cursor: pointer;
   font-size: 16px;
   transition: all 0.3s ease;
-  min-height: 44px; /* Minimum touch target size */
-  min-width: 44px;
 }
 
 h2 {
@@ -162,11 +160,11 @@ canvas {
   height: auto;
 }
 
-/* Mobile-first improvements */
 @media (max-width: 1023px) {
-  .action-buttons {
-    margin-top: 100px;
-  }
+.action-buttons{
+  margin-top:100px;
+}
+
 
   canvas {
     border: 2px dashed #fff;
@@ -176,7 +174,6 @@ canvas {
     max-height: 42vh !important;
     height: auto !important;
     width: auto !important;
-    touch-action: none; /* Disable default touch behaviors */
   }
 
   header {
@@ -186,93 +183,9 @@ canvas {
 
   .canvas-container {
     height: 40vh !important;
-    position: relative;
   }
-
   .action-buttons {
     height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-  }
-
-  .action-buttons button {
-    flex: 1;
-    min-width: 100px;
-    font-size: 14px;
-    padding: 12px 8px;
-  }
-
-  .text-controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .text-controls input,
-  .text-controls button {
-    min-height: 44px;
-    font-size: 16px;
-  }
-
-  .text-controls input[type="text"] {
-    flex: 1;
-    min-width: 200px;
-  }
-
-  .text-controls input[type="number"] {
-    width: 80px;
-  }
-
-  .text-controls input[type="color"] {
-    width: 60px;
-    height: 44px;
-    border: none;
-  }
-
-  .preset-button {
-    width: 80px;
-    height: 80px;
-    margin: 5px;
-  }
-}
-
-/* Touch-friendly mobile controls */
-@media (max-width: 768px) {
-  .top-button {
-    margin: 10px;
-  }
-
-  .upload-button {
-    font-size: 18px;
-    padding: 15px 25px;
-  }
-
-  canvas {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-
-  .action-buttons button {
-    font-size: 12px;
-    padding: 10px 6px;
-    min-width: 80px;
-  }
-
-  .text-controls {
-    padding: 10px;
-  }
-
-  .text-controls input[type="text"] {
-    min-width: 150px;
-  }
-
-  .preset-button {
-    width: 60px;
-    height: 60px;
   }
 }
 
@@ -331,216 +244,3 @@ canvas {
 }
 
 #loadingMessage{ font-size:32px; padding:30px;}
-
-/* Mobile zoom controls */
-.mobile-zoom-controls {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  z-index: 100;
-}
-
-.zoom-btn {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s ease;
-}
-
-.zoom-btn:hover {
-  background: rgba(255, 255, 255, 1);
-  transform: scale(1.1);
-}
-
-.zoom-btn:active {
-  transform: scale(0.95);
-}
-
-/* Hide zoom controls on desktop */
-@media (min-width: 1024px) {
-  .mobile-zoom-controls {
-    display: none;
-  }
-}
-
-/* Mobile-specific touch feedback improvements */
-@media (max-width: 768px) {
-  button, .upload-button {
-    transition: transform 0.1s ease;
-  }
-
-  button:active, .upload-button:active {
-    transform: scale(0.95);
-  }
-
-  /* Improve touch target sizes */
-  .preset-button {
-    transition: transform 0.1s ease;
-  }
-
-  .preset-button:active {
-    transform: scale(0.9);
-  }
-
-  /* Better mobile canvas interaction */
-  canvas {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-  }
-}
-
-/* PWA Styles */
-.install-button {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-}
-
-.install-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-}
-
-.update-banner {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 12px;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  animation: slideDown 0.3s ease;
-}
-
-.update-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.update-btn {
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  color: white;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: all 0.2s ease;
-}
-
-.update-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-.dismiss-btn {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-}
-
-.dismiss-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.offline-indicator {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #ff6b6b;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 25px;
-  font-size: 14px;
-  font-weight: bold;
-  z-index: 1000;
-  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
-  animation: slideUp 0.3s ease;
-}
-
-@keyframes slideDown {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* PWA specific mobile adjustments */
-@media (max-width: 768px) {
-  .update-content {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .update-content span {
-    font-size: 14px;
-  }
-
-  .offline-indicator {
-    bottom: 10px;
-    right: 10px;
-    font-size: 12px;
-    padding: 10px 16px;
-  }
-
-  .install-button {
-    font-size: 14px;
-    padding: 10px 20px;
-  }
-}
-
-/* Ensure PWA works well in standalone mode */
-@media (display-mode: standalone) {
-  body {
-    padding-top: env(safe-area-inset-top);
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-
-  header {
-    padding-top: calc(40px + env(safe-area-inset-top));
-  }
-}
